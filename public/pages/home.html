@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Solicitud de Permiso</title>
+</head>
+<body>
+    <h1>Bienvenido, <span id="userName"></span></h1>
+
+
+    <h1>Formulario de Solicitud de Permiso</h1>
+    <div id="formPermiso">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre">
+        <br>
+        <label for="sede">Sede</label>
+        <select name="sede" id="sede">
+            <option value="">Seleccione una sede</option>
+            <option value="puntarenas">Puntarenas</option>
+            <option value="capri">Capri</option>
+        </select>
+        <br>
+        <label for="salida">Fecha de Salida de Equipo</label>
+        <input type="date" name="salida" id="salida">
+        <br>
+        <label for="regreso">Fecha de Regreso de Equipo</label>
+        <input type="date" name="regreso" id="regreso">
+        <br>
+        <label for="codigo">Código de la Computadora</label>
+        <input type="text" name="codigo" id="codigo">
+        <br>
+        <div class="condiciones">
+            <ul>
+                <li>Si viajas en transporte público, debes resguardar tu equipo en tu bolso personal, no exponerlo.</li>
+                <li>Si llevas el equipo, procura ir acompañado.</li>
+                <li>Si está lloviendo, procura llevar el equipo en un vehículo apropiado para evitar algún daño.</li>
+                <li>Evitar jugar, descargar o utilizar el equipo para otros motivos que no sean relacionados con el estudio.</li>
+                <li>El equipo será revisado antes y después de ser entregado. Cualquier alteración o instalación indebida podría resultar en la pérdida de privilegios.</li>
+                <li>Si retiras una computadora sin haber completado el formulario y la boleta física, podrías ser amonestado.</li>
+                <li>Este formulario debe llenarse junto con la boleta física, que debe estar firmada por la persona encargada.</li>
+            </ul>
+        </div>
+        <br>
+        <label>
+            <input type="checkbox" id="acceptConditions">
+            Acepto todas las condiciones del uso del equipo
+        </label>
+        <br>
+        <button id="sendBtn">Enviar Solicitud</button>
+    </div>
+    <script type="module" src="../js/home.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</body>
+</html>

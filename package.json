@@ -1,0 +1,23 @@
+{
+  "name": "sistema-de-permisos-para-uso-de-computadoras-acad-micas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "login.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarexRGB/Sistema-de-Permisos-para-Uso-de-Computadoras-Acad-micas.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarexRGB/Sistema-de-Permisos-para-Uso-de-Computadoras-Acad-micas/issues"
+  },
+  "homepage": "https://github.com/sarexRGB/Sistema-de-Permisos-para-Uso-de-Computadoras-Acad-micas#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

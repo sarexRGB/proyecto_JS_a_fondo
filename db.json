@@ -1,0 +1,13 @@
+{
+  "users": [
+    {
+      "id": "253e",
+      "nombre": "Sara",
+      "correo": "velez99sara0106@gmail.com",
+      "password": "sara8000",
+      "tipo": "Estudiante"
+    }
+  ],
+
+  "solicitudes": []
+}
