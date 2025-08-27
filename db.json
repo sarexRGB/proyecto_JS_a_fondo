@@ -6,8 +6,35 @@
       "correo": "velez99sara0106@gmail.com",
       "password": "sara8000",
       "tipo": "Estudiante"
+    },
+    {
+      "id": "c9db",
+      "nombre": "Steven Salas",
+      "correo": "sstevenprofe@gmail.com",
+      "password": "stevenprofe",
+      "tipo": "Administrador"
     }
   ],
-
-  "solicitudes": []
+  "solicitudes": [
+    {
+      "id": "3aaa",
+      "nombre": "Sara",
+      "sede": "puntarenas",
+      "salida": "2025-08-27",
+      "regreso": "2025-08-28",
+      "codigo": "jhbkufhm67hvk5",
+      "condicion": "Pendiente",
+      "condicionesAceptadas": true
+    },
+    {
+      "id": "b627",
+      "nombre": "Sara",
+      "sede": "puntarenas",
+      "salida": "2025-08-28",
+      "regreso": "2025-08-29",
+      "codigo": "jhbkufhm67hvk5",
+      "condición": "Pendiente",
+      "condicionesAceptadas": true
+    }
+  ]
 }

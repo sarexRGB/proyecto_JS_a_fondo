@@ -7,15 +7,17 @@ const regreso = document.getElementById("regreso");
 const codigo = document.getElementById("codigo");
 const checkBox = document.getElementById("acceptConditions");
 const sendBtn = document.getElementById("sendBtn");
+const logoutBtn = document.getElementById("logoutBtn");
 
 window.addEventListener("load", () => {
     const usuario = JSON.parse(localStorage.getItem("usuario"));
     if (usuario) {
         nombre.value = usuario.nombre;
         nombre.readOnly = true;
+        document.getElementById("saludoUsuario").textContent = `👋 Hola, ${usuario.nombre}`;
     } else {
         alert("Debes iniciar sesión primero");
-        window.location.href = "../login.html";
+        window.location.href = "../pages/login.html";
     }
 });
 
@@ -43,6 +45,7 @@ sendBtn.addEventListener("click", async () => {
         salida: salidaVal,
         regreso: regresoVal,
         codigo: codigoVal,
+        condicion: "Pendiente",
         condicionesAceptadas: true
     };
 
@@ -62,3 +65,7 @@ sendBtn.addEventListener("click", async () => {
         Swal.fire("❌ Ocurrió un error al enviar la solicitud");
     }
 });
+
+logoutBtn.addEventListener("click", () => {
+    window.location.href = "../pages/login.html";
+})

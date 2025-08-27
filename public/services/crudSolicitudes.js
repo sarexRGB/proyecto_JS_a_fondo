@@ -5,7 +5,7 @@ async function sendSolicitud(solicitud) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(solicitud)
         })
 
         const newsolicitud = await response.json()

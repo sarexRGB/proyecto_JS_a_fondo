@@ -16,13 +16,18 @@ loginBtn.addEventListener("click", async () => {
 
     const user = await loginUser(correoVal, passwordVal);
 
-    if (user) {
-        localStorage.setItem("usuario", JSON.stringify(user));
-        
-        Swal.fire("✅ Bienvenido", `Hola ${user.nombre}`, "success");
-        window.location.href = "./pages/home.html";
+   if (user) {
+    localStorage.setItem("usuario", JSON.stringify(user));
+    
+    Swal.fire("✅ Bienvenido", `Hola ${user.nombre}`, "success");
+
+    if (user.tipo === "Administrador") {
+        window.location.href = "./pages/admin.html";
     } else {
-        Swal.fire("❌ Error", "Correo o contraseña incorrectos", "error");
+        window.location.href = "./pages/home.html";
+    }
+    } else {
+    Swal.fire("❌ Error", "Correo o contraseña incorrectos", "error");
     }
 })
 
