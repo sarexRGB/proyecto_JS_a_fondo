@@ -32,6 +32,7 @@ async function renderSolicitudes(filtro = "") {
         s.estado.toLowerCase().includes(filtro)
     );
 
+    // Se muestran datos básicos de la solicitud //
     filtradas.forEach(s => {
         const fila = document.createElement("tr");
         fila.dataset.nombre = s.nombre;
@@ -47,6 +48,7 @@ async function renderSolicitudes(filtro = "") {
     });
 };
 
+// Se muestran todos los datod de la Solicitud //
 tabla.addEventListener("click", async (e) => {
     const fila = e.target.closest("tr");
     if (!fila || !fila.solicitud) return;

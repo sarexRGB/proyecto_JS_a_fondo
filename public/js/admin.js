@@ -27,6 +27,7 @@ async function renderSolicitudes(filtro = "") {
         s.codigo.toLowerCase().includes(filtro)
     );
 
+    // En caso de no haber Solicitudes Pendientes se muestra un mensaje //
     if (filtradas.length === 0) {
         tabla.innerHTML = `
             <tr>
@@ -38,6 +39,7 @@ async function renderSolicitudes(filtro = "") {
         return;
     }
 
+    // Datos a mostrar //
     filtradas.forEach(s => {
         const fila = document.createElement("tr");
         fila.innerHTML = `
