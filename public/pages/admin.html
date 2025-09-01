@@ -3,11 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Administrador</title>
+    <title>Solicitude Pendientes</title>
+    <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
+    <h1>Solicitudes Pendientes</h1>
     
+    <button id="historialBtn">Ver Historial Completo</button>
 
-    <script type="module" src="../js/admin.js"></script>
+<input type="text" id="searchInput" placeholder="Buscar por nombre, sede o código" />
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Sede</th>
+      <th>Salida</th>
+      <th>Regreso</th>
+      <th>Código</th>
+      <th>Estado</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody id="solicitudesTable"></tbody>
+</table>
+<button id="logoutBtn">Cerrar Sesión</button>
+
+<script type="module" src="../js/admin.js"></script>
+
 </body>
 </html>

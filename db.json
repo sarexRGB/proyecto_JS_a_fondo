@@ -13,28 +13,42 @@
       "correo": "sstevenprofe@gmail.com",
       "password": "stevenprofe",
       "tipo": "Administrador"
+    },
+    {
+      "id": "69d5",
+      "nombre": "Barry",
+      "correo": "barryprofe@gmail.com",
+      "password": "barryprofe",
+      "tipo": "Administrador"
+    },
+    {
+      "id": "cc33",
+      "nombre": "Josué Jiménez",
+      "correo": "jjimenez@gmail.com",
+      "password": "12345",
+      "tipo": "Estudiante"
     }
   ],
   "solicitudes": [
     {
-      "id": "3aaa",
+      "id": "ae2e",
       "nombre": "Sara",
       "sede": "puntarenas",
-      "salida": "2025-08-27",
-      "regreso": "2025-08-28",
-      "codigo": "jhbkufhm67hvk5",
-      "condicion": "Pendiente",
-      "condicionesAceptadas": true
+      "salida": "2025-08-29",
+      "regreso": "2025-09-01",
+      "codigo": "5CD4078D1W",
+      "estado": "Pendiente",
+      "fechaSolicitud": "2025-08-29T20:59:27.283Z"
     },
     {
-      "id": "b627",
-      "nombre": "Sara",
+      "id": "1edb",
+      "nombre": "Josué Jiménez",
       "sede": "puntarenas",
-      "salida": "2025-08-28",
-      "regreso": "2025-08-29",
-      "codigo": "jhbkufhm67hvk5",
-      "condición": "Pendiente",
-      "condicionesAceptadas": true
+      "salida": "2025-09-01",
+      "regreso": "2025-09-03",
+      "codigo": "gmiytdc67ii6r9",
+      "estado": "Pendiente",
+      "fechaSolicitud": "2025-09-01T14:22:09.704Z"
     }
   ]
 }

@@ -1,0 +1,160 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    padding: 30px;
+    width: 320px;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    gap: 20px;
+    color: white;
+    text-align: center;
+}
+
+#login h1 {
+    margin: 0;
+}
+
+#loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+#loginForm input {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+#loginForm button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#loginForm button:hover {
+    background: #0056b3;
+}
+
+#signUp {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+#signUp button {
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 8px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#signUp button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.swal-popup {
+    border-radius: 15px !important;
+    padding: 25px !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    color: white;
+    width: 350px !important;
+}
+
+.swal-title {
+    font-size: 22px !important;
+    font-weight: bold;
+    margin-bottom: 15px !important;
+    color: white;
+    text-align: center;
+}
+
+.swal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+.swal-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.swal-form label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.swal-input {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.swal-confirm {
+    background: #007bff !important;
+    color: #fff !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+.swal-confirm:hover {
+    background: #0056b3 !important;
+}
+
+.swal-cancel {
+    background: transparent !important;
+    border: 1px solid white !important;
+    color: white !important;
+    border-radius: 8px !important;
+    padding: 10px 20px !important;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+.swal-cancel:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+}
+
+

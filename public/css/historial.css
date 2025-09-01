@@ -1,0 +1,98 @@
+/* Fondo y estructura general */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: white;
+}
+
+/* Título */
+h1 {
+    margin-bottom: 20px;
+    font-size: 28px;
+    text-align: center;
+}
+
+/* Botones */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #007bff;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin: 10px 5px;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Botón logout en rojo */
+#logoutBtn {
+    background: #ff4b5c;
+}
+
+#logoutBtn:hover {
+    background: #cc0000;
+}
+
+/* Input de búsqueda */
+#searchInput {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+    width: 300px;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* Tabla */
+table {
+    width: 90%;
+    max-width: 800px;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+thead {
+    background: rgba(0, 123, 255, 0.8);
+}
+
+thead th {
+    padding: 12px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+}
+
+tbody td {
+    padding: 12px;
+    font-size: 13px;
+    color: white;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Alternar filas */
+tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}

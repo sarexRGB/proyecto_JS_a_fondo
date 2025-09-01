@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Historial de Solicitudes</title>
+  <link rel="stylesheet" href="../css/historial.css">
+</head>
+<body>
+  <h1>Historial de Solicitudes</h1>
+
+  <button id="pendientesBtn">Ver Solicitudes Pendientes</button>
+
+  <input type="text" id="searchInput" placeholder="Buscar por nombre, sede o estado" />
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Sede</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody id="solicitudesTable"></tbody>
+  </table>
+  <button id="logoutBtn">Cerrar Sesión</button>
+
+  <script type="module" src="../js/historial.js"></script>
+</body>
+</html>
