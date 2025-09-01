@@ -87,11 +87,35 @@ button:hover {
 
 #logoutBtn {
     background: #ff4b5c;
-    margin-top: 15px;
 }
 
 #logoutBtn:hover {
     background: #cc0000;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.action-buttons button {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#historialBtn {
+    background: #4facfe;
+}
+
+#historialBtn:hover {
+    background: #00f2fe;
 }
 
 @media (max-width: 500px) {

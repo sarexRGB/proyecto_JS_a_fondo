@@ -8,6 +8,7 @@ const codigo = document.getElementById("codigo");
 const checkBox = document.getElementById("acceptConditions");
 const sendBtn = document.getElementById("sendBtn");
 const logoutBtn = document.getElementById("logoutBtn");
+const historialBtn = document.getElementById("historialBtn");
 
 // Cargar nombre de usuario guardado en locaStorage al iniciar sesión //
 window.addEventListener("load", () => {
@@ -97,3 +98,8 @@ logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("usuario");
     window.location.replace("../pages/login.html");
 })
+
+// Historial de Solicitudes //
+historialBtn.addEventListener("click", () => {
+    window.location.href = "../pages/historialEstudiante.html"; // Ajusta la ruta según tu proyecto
+});

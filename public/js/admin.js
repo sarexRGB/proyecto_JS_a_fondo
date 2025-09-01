@@ -21,12 +21,24 @@ async function renderSolicitudes(filtro = "") {
     const solicitudes = await getSolicitudesPendientes();
     tabla.innerHTML = "";
 
-    solicitudes.filter(s =>
+    const filtradas = solicitudes.filter(s =>
         s.nombre.toLowerCase().includes(filtro) ||
         s.sede.toLowerCase().includes(filtro) ||
         s.codigo.toLowerCase().includes(filtro)
-    )
-    .forEach(s => {
+    );
+
+    if (filtradas.length === 0) {
+        tabla.innerHTML = `
+            <tr>
+                <td colspan="7" style="text-align:center; padding:20px; color:white;">
+                    No hay Solicitudes Pendientes
+                </td>
+            </tr>
+        `;
+        return;
+    }
+
+    filtradas.forEach(s => {
         const fila = document.createElement("tr");
         fila.innerHTML = `
             <td data-label="Nombre">${s.nombre}</td>

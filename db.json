@@ -37,7 +37,7 @@
       "salida": "2025-08-29",
       "regreso": "2025-09-01",
       "codigo": "5CD4078D1W",
-      "estado": "Pendiente",
+      "estado": "Rechazada",
       "fechaSolicitud": "2025-08-29T20:59:27.283Z"
     },
     {
@@ -47,8 +47,18 @@
       "salida": "2025-09-01",
       "regreso": "2025-09-03",
       "codigo": "gmiytdc67ii6r9",
-      "estado": "Pendiente",
+      "estado": "Aprobada",
       "fechaSolicitud": "2025-09-01T14:22:09.704Z"
+    },
+    {
+      "id": "6841",
+      "nombre": "Sara",
+      "sede": "puntarenas",
+      "salida": "2025-09-01",
+      "regreso": "2025-09-03",
+      "codigo": "5CD4078D1W",
+      "estado": "Aprobada",
+      "fechaSolicitud": "2025-09-01T15:37:32.484Z"
     }
   ]
 }
