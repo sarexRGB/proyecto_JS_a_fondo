@@ -12,14 +12,14 @@
       "nombre": "Steven Salas",
       "correo": "sstevenprofe@gmail.com",
       "password": "stevenprofe",
-      "tipo": "Administrador"
+      "tipo": "Profesor"
     },
     {
       "id": "69d5",
       "nombre": "Barry",
       "correo": "barryprofe@gmail.com",
       "password": "barryprofe",
-      "tipo": "Administrador"
+      "tipo": "Profesor"
     },
     {
       "id": "cc33",
@@ -27,6 +27,13 @@
       "correo": "jjimenez@gmail.com",
       "password": "12345",
       "tipo": "Estudiante"
+    },
+    {
+      "id": "8eb4",
+      "nombre": "Susana",
+      "correo": "susanaadmin@gmail.com",
+      "password": "susanaAdmin2025",
+      "tipo": "Administrador"
     }
   ],
   "solicitudes": [

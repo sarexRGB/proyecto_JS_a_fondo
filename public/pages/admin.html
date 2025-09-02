@@ -3,32 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitude Pendientes</title>
+    <title>Solicitudes - Administrador</title>
     <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
-    <h1>Solicitudes Pendientes</h1>
-    
-    <button id="historialBtn">Ver Historial Completo</button>
+    <h1>Solicitudes</h1>
 
-<input type="text" id="searchInput" placeholder="Buscar por nombre, sede o código" />
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Sede</th>
-      <th>Salida</th>
-      <th>Regreso</th>
-      <th>Código</th>
-      <th>Estado</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody id="solicitudesTable"></tbody>
-</table>
-<button id="logoutBtn">Cerrar Sesión</button>
+    <button id="profesoresBtn">Profesores</button>
 
-<script type="module" src="../js/admin.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Sede</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="solicitudesTable"></tbody>
+   </table>
+
+   <button id="logoutBtn">Cerrar Sesión</button>
+
+   <script type="module" src="../js/admin.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>

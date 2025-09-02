@@ -9,7 +9,7 @@ let solicitudesCache = [];
 
 // Redirección a pag con solicitudes pendientes //
 pendientesBtn.addEventListener("click", () => {
-    window.location.replace("../pages/admin.html");
+    window.location.replace("../pages/profesorAdmin.html");
 });
 
 // Logout //

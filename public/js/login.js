@@ -6,10 +6,12 @@ const loginBtn = document.getElementById("loginBtn");
 const signUpBtn = document.getElementById("signUpBtn");
 
 function redirigirUsuario(user) {
-    if (user.tipo.toLowerCase() === "administrador") {
-        window.location.replace("../pages/historial.html");
-    } else {
+    if (user.tipo.toLowerCase() === "profesor") {
+        window.location.replace("../pages/historialProfesor.html");
+    } else if (user.tipo.toLowerCase() === "estudiante") {
         window.location.replace("../pages/home.html");
+    } else {
+        window.location.replace("../pages/admin.html")
     }
 }
 
@@ -17,10 +19,18 @@ function redirigirUsuario(user) {
 loginBtn.addEventListener("click", async () => {
     const correoVal = correo.value.trim();
     const passwordVal = password.value.trim();
+    const correoRegex =  /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
 
     // Validar que no falten datos //
     if (!correoVal || !passwordVal) {
         Swal.fire("⚠️ Campos vacíos", "Debes llenar todos los campos", "warning");
+        return;
+    }
+
+    // Validar formato de correo //
+     if (!correoRegex.test(correoVal)) {
+        Swal.fire("⚠️ Correo inválido", "Por favor ingresa un correo válido", "warning");
         return;
     }
 
@@ -72,9 +82,21 @@ signUpBtn.addEventListener("click", function () {
             const nombre = document.getElementById("swal-nombre").value.trim();
             const correo = document.getElementById("swal-correo").value.trim();
             const password = document.getElementById("swal-password").value.trim();
+            const correoRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const passwordRegex = /^(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
             if (!nombre || !correo || !password) {
                 Swal.showValidationMessage("⚠️ Todos los campos son obligatorios");
+                return false;
+            }
+
+            if (!correoRegex.test(correo)) {
+                Swal.showValidationMessage("⚠️ Ingresa un correo válido");
+                return false;
+            }
+
+            if (!passwordRegex.test(password)) {
+                Swal.showValidationMessage("⚠️ La contraseña debe tener mínimo 8 caracteres, una mayúscula y un número");
                 return false;
             }
 

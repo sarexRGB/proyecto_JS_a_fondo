@@ -49,4 +49,30 @@ async function loginUser(correo, password) {
     }
 }
 
-export{postUser, loginUser}
+async function getProfesores() {
+    try {
+        const response = await fetch("http://localhost:3001/users");
+        const users = await response.json();
+
+        const profesores = users.filter(user => user.tipo.toLowerCase() === "profesor");
+        return profesores;
+
+    } catch (error) {
+        console.error("Error obteniendo profesores:", error);
+        throw error;
+    }
+}
+
+async function deleteUser(id) {
+    try {
+        const response = await fetch(`http://localhost:3001/users/${id}`, {
+            method: 'DELETE'
+        });
+        return await response.json();
+    } catch (error) {
+        console.error("Error al eliminar usuario:", error);
+        throw error;
+    }
+}
+
+export{postUser, loginUser, getUser, getProfesores, deleteUser}

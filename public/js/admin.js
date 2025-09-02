@@ -1,90 +1,91 @@
-import { getSolicitudesPendientes, updateSolicitud } from "../services/crudSolicitudes.js";
+import { getSolicitudes, updateSolicitud } from "../services/crudSolicitudes.js";
 
-const tabla = document.getElementById("solicitudesTable");
-const searchInput = document.getElementById("searchInput");
+const profesoresBtn = document.getElementById("profesoresBtn");
 const logoutBtn = document.getElementById("logoutBtn");
-const historialBtn = document.getElementById("historialBtn");
+const solicitudesTable = document.getElementById("solicitudesTable");
 
-// Redirección a pag con Historial de Solicitudes //
-historialBtn.addEventListener("click", () => {
-    window.location.replace("../pages/historial.html")
+const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+if (!usuario || usuario.tipo.toLowerCase() !== "administrador") {
+    Swal.fire("⚠️ Acceso denegado", "No tienes permisos para acceder a esta página", "error")
+        .then(() => window.location.replace("../pages/login.html"));
+}
+
+profesoresBtn.addEventListener("click", () => {
+    window.location.replace("../pages/adminProfesores.html");
 })
 
-// Logout //
-logoutBtn.addEventListener("click", () => {
-    localStorage.removeItem("usuario");
-    window.location.replace("../pages/login.html");
-});
+async function cargarSolicitudes() {
+    try {
+        const solicitudes = await getSolicitudes();
+        solicitudesTable.innerHTML = "";
 
-// renderización de solicitude pendientes //
-async function renderSolicitudes(filtro = "") {
-    const solicitudes = await getSolicitudesPendientes();
-    tabla.innerHTML = "";
+        if (!solicitudes || solicitudes.length === 0) {
+            solicitudesTable.innerHTML = `<tr><td colspan="4">No hay solicitudes disponibles</td></tr>`;
+            return;
+        }
 
-    const filtradas = solicitudes.filter(s =>
-        s.nombre.toLowerCase().includes(filtro) ||
-        s.sede.toLowerCase().includes(filtro) ||
-        s.codigo.toLowerCase().includes(filtro)
-    );
-
-    // En caso de no haber Solicitudes Pendientes se muestra un mensaje //
-    if (filtradas.length === 0) {
-        tabla.innerHTML = `
-            <tr>
-                <td colspan="7" style="text-align:center; padding:20px; color:white;">
-                    No hay Solicitudes Pendientes
+        solicitudes.forEach(solicitud => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+                <td data-label="Nombre">${solicitud.nombre}</td>
+                <td data-label="Sede">${solicitud.sede}</td>
+                <td data-label="Estado">${solicitud.estado}</td>
+                <td data-label="Acciones">
+                    <button class="aceptarBtn" data-id="${solicitud.id}">Aceptar</button>
+                    <button class="rechazarBtn" data-id="${solicitud.id}">Rechazar</button>
                 </td>
-            </tr>
-        `;
-        return;
-    }
+            `;
+            solicitudesTable.appendChild(tr);
+        });
 
-    // Datos a mostrar //
-    filtradas.forEach(s => {
-        const fila = document.createElement("tr");
-        fila.innerHTML = `
-            <td data-label="Nombre">${s.nombre}</td>
-            <td data-label="Sede">${s.sede}</td>
-            <td data-label="Salida">${s.salida}</td>
-            <td data-label="Regreso">${s.regreso}</td>
-            <td data-label="Código">${s.codigo}</td>
-            <td data-label="Estado">${s.estado}</td>
-            <td data-label="Acciones">
-                <button class="aproveBtn" data-id="${s.id}">Aprobar</button>
-                <button class="reyectBtn" data-id="${s.id}">Rechazar</button>
-            </td>
-        `;
-        tabla.appendChild(fila);
-    
-    });
+        const aceptarBtns = document.getElementsByClassName("aceptarBtn");
+        const rechazarBtns = document.getElementsByClassName("rechazarBtn");
 
-    // Aprovar Solicitud //
-    const aproveBtns = document.getElementsByClassName("aproveBtn");
-    for (const btn of aproveBtns) {
-        btn.onclick = async () => {
-            const id = btn.dataset.id;
-            await updateSolicitud(id, { estado: "Aprobada" });
-            Swal.fire("✅ Solicitud aprobada", "El usuario ya puede retirar la computadora.", "success");
-            renderSolicitudes(searchInput.value.toLowerCase());
-        };
-    }
+        Array.from(aceptarBtns).forEach(btn => {
+            btn.addEventListener("click", () => {
+                const idSolicitud = btn.dataset.id;
+                cambiarEstado(idSolicitud, "Aceptada");
+            });
+        });
 
-    // Rechazar Solicitud //
-    const reyectBtns = document.getElementsByClassName("reyectBtn");
-    for (const btn of reyectBtns) {
-        btn.onclick = async () => {
-            const id = btn.dataset.id;
-            await updateSolicitud(id, { estado: "Rechazada" });
-            Swal.fire("❌ Solicitud rechazada", "El usuario fue notificado del rechazo.", "error");
-            renderSolicitudes(searchInput.value.toLowerCase());
-        };
+        Array.from(rechazarBtns).forEach(btn => {
+            btn.addEventListener("click", () => {
+                const idSolicitud = btn.dataset.id;
+                cambiarEstado(idSolicitud, "Rechazada");
+            });
+        });
+
+    } catch (error) {
+        console.error("Error cargando solicitudes:", error);
+        Swal.fire("❌ Error", "No se pudieron cargar las solicitudes", "error");
     }
 }
 
-// Buscador //
-searchInput.addEventListener("input", () => {
-    renderSolicitudes(searchInput.value.toLowerCase());
-});
+cargarSolicitudes();
 
-renderSolicitudes();
+async function cambiarEstado(id, nuevoEstado) {
+    const confirm = await Swal.fire({
+        title: `¿Deseas ${nuevoEstado.toLowerCase()} esta solicitud?`,
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonText: "Sí",
+        cancelButtonText: "Cancelar"
+    });
 
+    if (confirm.isConfirmed) {
+        try {
+            await updateSolicitud(id, { estado: nuevoEstado });
+            Swal.fire("✅ Hecho", `Solicitud ${nuevoEstado.toLowerCase()}`, "success");
+            cargarSolicitudes();
+        } catch (error) {
+            console.error("Error actualizando solicitud:", error);
+            Swal.fire("❌ Error", "No se pudo actualizar la solicitud", "error");
+        }
+    }
+}
+
+logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("usuario");
+    window.location.replace("../pages/login.html");
+})
